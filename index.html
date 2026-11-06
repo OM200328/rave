@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="welcome">
+    <div class="welcome-box">
+      <div class="big-emoji">💌</div>
+      <h1>I made something for you</h1>
+      <button id="openBtn">Tap to open 💖</button>
+    </div>
+  </div>
+
+  <div id="hearts"></div>
+  <div id="runners"></div>
+
+  <audio id="song" loop>
+    <source src="music/our-song.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="musicToggle">🎵</button>
+
+  <header class="hero">
+    <h2 class="script">Hey, my love 💕</h2>
+    <p>Scroll down, there's a little something for you…</p>
+    <div class="arrow">⬇️</div>
+  </header>
+
+  <section class="section">
+    <h2 class="script">Our Memories 📸</h2>
+    <div class="gallery">
+      <figure><img src="images/us1.jpg" alt="Us" /><figcaption>Our first picture 💗</figcaption></figure>
+      <figure><img src="images/us2.jpg" alt="Us" /><figcaption>My favourite day 🌸</figcaption></figure>
+      <figure><img src="images/us3.jpg" alt="Us" /><figcaption>Forever us ✨</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="script">Reasons Why I Love You 💗</h2>
+    <div class="card" id="reasonCard">Tap the button for a reason 💌</div>
+    <button class="btn" id="reasonBtn">Show me a reason 💖</button>
+    <img class="reasons-img" src="images/100-reasons.jpg" alt="100 reasons" onerror="this.style.display='none'" />
+  </section>
+
+  <section class="section">
+    <h2 class="script">A Little Letter ✉️</h2>
+    <div class="letter">
+      <p>nothings needs to tell you . Tell her what she means to you. 💖</p>
+      <p class="sign">Always yours, <br /><b>rave</b></p>
+    </div>
+  </section>
+
+  <section class="section proposal" id="proposal">
+    <div class="cat">🐱💐</div>
+    <h2 class="script big">Will you be mine forever? 💍</h2>
+    <div class="choices">
+      <button id="yesBtn" class="btn yes">Yes 💖</button>
+      <button id="noBtn" class="btn no">No 💔</button>
+    </div>
+    <p id="hint" class="small"></p>
+  </section>
+
+  <div id="celebrate" class="hidden">
+    <div class="celebrate-box">
+      <h1 class="script">She said YES! 🎉💖</h1>
+      <p>I love you sooooooo much! 🥰</p>
+      <img src="images/love-card.jpg" alt="I love you" onerror="this.style.display='none'" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
