@@ -3,74 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For You 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>For You 🌻</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div id="welcome">
-    <div class="welcome-box">
-      <div class="big-emoji">💌</div>
-      <h1>I made something for you</h1>
-      <button id="openBtn">Tap to open 💖</button>
-    </div>
-  </div>
-
+  <div id="sky" aria-hidden="true"></div>
   <div id="hearts"></div>
   <div id="runners"></div>
+  <div id="hugsOverlay" aria-hidden="true"></div>
 
-  <audio id="song" loop>
-    <source src="music/our-song.mp3" type="audio/mpeg" />
-  </audio>
-  <button id="musicToggle">🎵</button>
+  <!-- Top Right Navigation Bar (Send Hugs + Music Toggle) -->
+  <div class="top-nav-bar">
+    <button id="sendHugsBtn" class="pill-nav-btn send-hugs-btn" title="Send a warm hug ❤️">
+      <span class="hug-icon">❤️</span>
+      <span class="hug-text">Send Hugs</span>
+    </button>
+    <button id="musicToggle" class="circle-nav-btn" title="Play / pause music">🎵</button>
+  </div>
+
+  <audio id="song" loop><source src="music/our-song.mp3" type="audio/mpeg" /></audio>
+
+  <!-- Welcome Hero Screen (Cinematic Experience) -->
+  <div id="welcome">
+    <!-- Cinematic Widescreen Letterbox Bars -->
+    <div class="letterbox-bar letterbox-top" aria-hidden="true"></div>
+    <div class="letterbox-bar letterbox-bottom" aria-hidden="true"></div>
+
+    <!-- Cinematic Atmosphere Layers -->
+    <div class="cinematic-sunbeams" aria-hidden="true"></div>
+    <div class="cinematic-vignette" aria-hidden="true"></div>
+    <div class="cinematic-flare-streak" aria-hidden="true"></div>
+    <canvas id="cinematicDustCanvas" class="cinematic-dust" aria-hidden="true"></canvas>
+
+    <!-- Top-left 3D fluffy cloud -->
+    <div class="cloud-3d cloud-tl parallax-layer" data-depth="0.04" aria-hidden="true">
+      <div class="puff p1"></div>
+      <div class="puff p2"></div>
+      <div class="puff p3"></div>
+      <div class="puff p4"></div>
+    </div>
+
+    <!-- Mid-right 3D fluffy cloud -->
+    <div class="cloud-3d cloud-mr parallax-layer" data-depth="0.06" aria-hidden="true">
+      <div class="puff p1"></div>
+      <div class="puff p2"></div>
+      <div class="puff p3"></div>
+      <div class="puff p4"></div>
+      <div class="puff p5"></div>
+    </div>
+
+    <!-- Hovering little honeybee on left -->
+    <div class="floating-bee parallax-layer" data-depth="0.09" aria-hidden="true">
+      <span class="bee-body">🐝</span>
+    </div>
+
+    <!-- Floating stickers cluster on right -->
+    <div class="floating-cluster parallax-layer" data-depth="0.09" aria-hidden="true">
+      <span class="cluster-item">🌸</span>
+      <span class="cluster-item">🐝</span>
+      <span class="cluster-item">✨</span>
+      <span class="cluster-item">🌼</span>
+    </div>
+
+    <!-- Center Hero Card Content -->
+    <div class="welcome-center parallax-layer" data-depth="0.025" id="heroCardWrap">
+      <!-- Floating glowing pink envelope -->
+      <div class="glow-envelope-wrap">
+        <div class="glow-envelope" id="heroEnvelope">
+          <div class="envelope-top-crease"></div>
+          <div class="envelope-sheen" aria-hidden="true"></div>
+          <div class="envelope-seal">
+            <svg viewBox="0 0 24 24" class="seal-heart" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="welcome-script"><span class="cinematic-title-shimmer">I made something for you</span></h1>
+
+      <button id="openBtn" class="welcome-open-btn">
+        <span class="btn-flare" aria-hidden="true"></span>
+        <span class="btn-text">Tap to open 🌻</span>
+      </button>
+
+      <div class="welcome-sparkles" aria-hidden="true">
+        <span>✨</span>
+        <span>💜</span>
+        <span>✨</span>
+      </div>
+    </div>
+
+    <!-- Cinematic Light Burst Overlay on Open -->
+    <div class="cinematic-light-burst" id="lightBurst" aria-hidden="true"></div>
+  </div>
 
   <header class="hero">
-    <h2 class="script">Hey, my love 💕</h2>
-    <p>Scroll down, there's a little something for you…</p>
+    <div class="hero-cinematic-backdrop" aria-hidden="true"></div>
+    <div class="hero-badge">🌻 A Special Garden For You</div>
+    <h2 class="script hero-title">Happy birthday, my Ahana 🌻</h2>
+    <p class="hero-sub">Scroll down, a little garden is waiting for you…</p>
     <div class="arrow">⬇️</div>
   </header>
 
   <section class="section">
     <h2 class="script">Our Memories 📸</h2>
     <div class="gallery">
-      <figure><img src="images/us1.jpg" alt="Us" /><figcaption>Our first picture 💗</figcaption></figure>
-      <figure><img src="images/us2.jpg" alt="Us" /><figcaption>My favourite day 🌸</figcaption></figure>
-      <figure><img src="images/us3.jpg" alt="Us" /><figcaption>Forever us ✨</figcaption></figure>
+      <figure class="piece"><img src="images/us1.jpg" alt="Us" onerror="this.onerror=null;this.src='images/us1.jpg.jpeg';" /><figcaption>Our first picture 💛</figcaption></figure>
+      <figure class="piece"><img src="images/us2.jpg" alt="Us" onerror="this.onerror=null;this.src='images/us2.jpg.jpeg';" /><figcaption>My favourite day 🌼</figcaption></figure>
+      <figure class="piece"><img src="images/us3.jpg" alt="Us" onerror="this.onerror=null;this.src='images/us3.jpg.jpeg';" /><figcaption>Forever us ✨</figcaption></figure>
     </div>
   </section>
 
   <section class="section">
-    <h2 class="script">Reasons Why I Love You 💗</h2>
-    <div class="card" id="reasonCard">Tap the button for a reason 💌</div>
-    <button class="btn" id="reasonBtn">Show me a reason 💖</button>
+    <h2 class="script">Reasons I Love You 💛</h2>
+    <div class="card" id="reasonCard">Tap the button for a reason ☁️</div>
+    <button class="btn" id="reasonBtn">Show me a reason 🌻</button>
     <img class="reasons-img" src="images/100-reasons.jpg" alt="100 reasons" onerror="this.style.display='none'" />
   </section>
 
   <section class="section">
     <h2 class="script">A Little Letter ✉️</h2>
     <div class="letter">
-      <p>nothings needs to tell you . Tell her what she means to you. 💖</p>
-      <p class="sign">urs always, <br /><b>rave</b></p>
+      <p> Tumhe pata hai, kabhi kabhi main sochta nahi, bas mehsoos karta hoon ki tum mere liye kya ho. Tumhari smile mere din ki shuruaat hai, aur tumhari aankhon mein dekhkar lagta hai jaise saare toofaan apne aap shaant ho gaye. Jis tarah tum mera naam leti/lete ho, usme ek sukoon hai jo main shabdon mein kabhi nahi bata paunga. 🥺
+Tumne mujhe tab bhi sambhala jab main khud ko nahi sambhal paaya. Tumhari khamoshi bhi mujhe samajh jaati hai, aur tumhara "main hoon na" mere liye duniya ki sabse badi taskeen hai. Tumhare random texts, late night baatein aur voice notes mere din ke sabse pyaare hisse hain. Tum meri choti se choti baat yaad rakhti/rakhte ho, aur poochte ho "khana khaya?", tab lagta hai main kisi ke dil mein sach mein basa hoon. 🤍
+Tumne mere andhere ko bhi apnaya, meri kamiyon ke saath bhi mujhe chuna, aur aaj bhi roz chun rahi/rahe ho. Tumhari ziddi aadatein, tumhari choti si jealousy, tumhari sharm aur tumhari himmat, mujhe tumhari har cheez se pyaar hai, tumhari kamiyon se bhi. Tumhare saath khamoshi mein baithna bhi mujhe ghar jaisa lagta hai. 🏡
+Main har dua mein tumhe yaad rakhta hoon, aur chahta hoon ki tum humesha muskurate raho. Kyunki tum jaise ho, waise hi kaafi ho, aur mere liye sab kuch ho. 💖 💛</p>
+      <p class="sign">Always yours, <br /><b>Aryan</b></p>
     </div>
   </section>
 
   <section class="section proposal" id="proposal">
-    <div class="cat">🐱💐</div>
+    <div class="cat">🐱🌼</div>
     <h2 class="script big">Will you be mine forever? 💍</h2>
     <div class="choices">
-      <button id="yesBtn" class="btn yes">Yes 💖</button>
+      <button id="yesBtn" class="btn yes">Yes 🌻</button>
       <button id="noBtn" class="btn no">No 💔</button>
     </div>
     <p id="hint" class="small"></p>
   </section>
 
+  <div id="garden" aria-hidden="true"></div>
+
+  <!-- CELEBRATION + QUIZ + THANK YOU -->
   <div id="celebrate" class="hidden">
-    <div class="celebrate-box">
-      <h1 class="script">She said YES! 🎉💖</h1>
-      <p>I love you sooooooo much! 🥰</p>
-      <img src="images/love-card.jpg" alt="I love you" onerror="this.style.display='none'" />
+    <div class="cloud-card" id="quizCard">
+      <div id="quizStage">
+        <h1 class="script">She said YES! 🎉</h1>
+        <p>Quick movie-world game before we celebrate 🎬</p>
+        <button class="btn" id="startQuiz">Play 🎮</button>
+      </div>
     </div>
+    <div id="thankYouStage" class="thankyou-wrap hidden"></div>
   </div>
 
   <script src="script.js"></script>

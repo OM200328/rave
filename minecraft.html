@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Our Minecraft Date World 💛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="minecraft.css" />
+</head>
+<body>
+  <canvas id="glCanvas"></canvas>
+
+  <!-- Floating 3D Forehead Pointer Name Tags -->
+  <div id="avatarLabels" class="avatar-labels" aria-hidden="true">
+    <div id="labelGirl" class="avatar-tag girl"><span class="tag-text"></span><span class="tag-arrow"></span></div>
+    <div id="labelBoy" class="avatar-tag boy"><span class="tag-text"></span><span class="tag-arrow"></span></div>
+  </div>
+
+  <!-- Top Left & Center HUD -->
+  <header class="hud-top">
+    <div class="hud-left">
+      <a class="hud-btn back-link" href="index.html" title="Return to our garden">🌻 Back</a>
+      <button class="hud-btn" id="openSkinBtn" title="Choose avatar style">👤 Avatar</button>
+      <button class="hud-btn" id="timeBtn" title="Switch Day / Sunset / Date Night (T)">🌅 Sunset</button>
+      <button class="hud-btn" id="soundBtn" title="Toggle music & chimes">🎵</button>
+    </div>
+
+    <div class="zone-pill" id="zoneBanner">📍 Flower Plaza</div>
+  </header>
+
+  <!-- Top-Right Mini-Map (Whole Place Overview + Click to Jump) -->
+  <aside class="minimap-box" title="Click any place on the map to go there!">
+    <div class="minimap-title">🗺️ World Map <small>(tap place)</small></div>
+    <canvas id="minimapCanvas" width="184" height="184"></canvas>
+  </aside>
+
+  <audio id="bgMusic" loop><source src="music/our-song.mp3" type="audio/mpeg" /></audio>
+
+  <!-- Interaction Prompt & Boy's Hinglish Compliment Bubble -->
+  <div id="interactPrompt" class="interact-prompt hidden"></div>
+  <div id="dialogueToast" class="dialogue-toast hidden"></div>
+
+  <!-- Simple Romantic Control Bar -->
+  <div class="hud-bottom">
+    <div class="action-bar">
+      <button class="hud-btn active" id="holdHandsBtn" title="Toggle holding hands (H)">🤝 Holding Hands: ON</button>
+      <button class="hud-btn compliment-btn" id="complimentBtn" title="Hear Hinglish compliment (C)">💬 Sweet Compliment</button>
+      <button class="hud-btn action-btn hidden" id="useBtn">✨ Interact (E)</button>
+    </div>
+    <div class="controls-hint">
+      Drag screen for <b>360° view</b> • Scroll to zoom • <b>WASD / Arrows</b> walk together • <b>Space</b> jump • <b>E</b> rest / ride / eat
+    </div>
+  </div>
+
+  <!-- Touch Controls (Mobile) -->
+  <div class="touch-controls" id="touchControls">
+    <div class="dpad">
+      <button class="tbtn" data-key="KeyW">▲</button>
+      <div class="dpad-mid">
+        <button class="tbtn" data-key="KeyA">◀</button>
+        <button class="tbtn" data-key="KeyS">▼</button>
+        <button class="tbtn" data-key="KeyD">▶</button>
+      </div>
+    </div>
+    <div class="touch-actions">
+      <button class="tbtn" id="tInteract">✨ Use</button>
+      <button class="tbtn" id="tJump">⬆️ Jump</button>
+    </div>
+  </div>
+
+  <!-- Welcome Video + Avatar Style Modal -->
+  <div id="startModal" class="modal">
+    <div class="modal-card start-card">
+      <div class="modal-badge">WELCOME TO OUR MINECRAFT WORLD 🌸💛</div>
+      <h1 class="script-title">Walk Together in Our World</h1>
+
+      <div class="welcome-video-box">
+        <div class="welcome-video-frame">
+          <video id="welcomeVideo" src="videos/minecraft-welcome.mp4" autoplay loop muted playsinline></video>
+          <button type="button" class="welcome-sound-btn" id="welcomeSoundBtn">🔇 Unmute Piano</button>
+          <div class="welcome-caption">🌸 Welcome home, my sunshine — take a deep breath &amp; step inside</div>
+        </div>
+      </div>
+
+      <p class="modal-sub">Stroll hand-in-hand with 360° camera view through the <b>Amusement Park</b>, <b>Date Restaurant</b>, <b>Cozy House (Beds)</b>, and <b>Starry Date Gazebo</b>.</p>
+
+      <div class="skin-grid">
+        <button type="button" class="skin-option active" data-girl-skin="flower_girl">
+          <img src="images/minecraft/flower-girl.jpg" alt="Flower Girl avatar" />
+          <strong>Flower Crown Girl &amp; Boy</strong>
+          <span>Lavender knit &amp; black star hoodie</span>
+        </button>
+        <button type="button" class="skin-option" data-girl-skin="red_girl">
+          <img src="images/minecraft/couple-skins.jpg" alt="Red-Bow Girl and Star Boy avatars" />
+          <strong>Red-Bow Girl &amp; Boy</strong>
+          <span>Crimson hair &amp; black star hoodie</span>
+        </button>
+      </div>
+
+      <div class="start-actions">
+        <button class="primary-btn" id="playWorldBtn">Walk Together Hand-in-Hand 🤝💛</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="minecraft-world.js"></script>
+  <script src="minecraft.js"></script>
+</body>
+</html>
