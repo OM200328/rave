@@ -5,21 +5,31 @@ const REASONS = [
 ];
 const RUNNER_EMOJI = "🐭";
 const QUIZ = [
-  { q: "Our first date in a movie world. What happens?", o: [
-    ["I show up with a boombox and a dramatic speech 🎶", "noah"], ["We steal a boat and sail into the sunset 🚢", "jack"],
-    ["I get you to a wedding, accidentally 💃", "raj"], ["We go to a swamp. Romantic, trust me 🧅", "shrek"] ] },
-  { q: "Who ends up paying for the snacks?", o: [
-    ["Me, but you eat 90% 🍿", "raj"], ["You. I sketch you in return 🎨", "jack"],
-    ["Whoever loses the staring contest 👀", "shrek"], ["I write you a letter instead 💌", "noah"] ] },
-  { q: "Our couple fight looks like…", o: [
-    ["Rain, shouting, then a big kiss ☔", "noah"], ["10 minutes of silence, then pizza 🍕", "shrek"],
-    ["Running across a train platform 🚂", "raj"], ["You say 'door had space for both' 🚪", "jack"] ] },
-  { q: "Pick our movie theme song vibe", o: [
-    ["Slow, soft, tears guaranteed 😭", "jack"], ["Rom-com banger 🎤", "raj"],
-    ["Funny but secretly sweet 🎸", "shrek"], ["Old-school piano 🎹", "noah"] ] },
-  { q: "How would you describe me in the movie?", o: [
-    ["Total hero, slightly clueless 🦸", "raj"], ["The funny sidekick who wins the girl 😎", "shrek"],
-    ["Hopeless romantic 🌹", "noah"], ["Artist with zero money 🎨", "jack"] ] }
+  {
+    q: "Our first date in a movie world. What happens?", o: [
+      ["I show up with a boombox and a dramatic speech 🎶", "noah"], ["We steal a boat and sail into the sunset 🚢", "jack"],
+      ["I get you to a wedding, accidentally 💃", "raj"], ["We go to a swamp. Romantic, trust me 🧅", "shrek"]]
+  },
+  {
+    q: "Who ends up paying for the snacks?", o: [
+      ["Me, but you eat 90% 🍿", "raj"], ["You. I sketch you in return 🎨", "jack"],
+      ["Whoever loses the staring contest 👀", "shrek"], ["I write you a letter instead 💌", "noah"]]
+  },
+  {
+    q: "Our couple fight looks like…", o: [
+      ["Rain, shouting, then a big kiss ☔", "noah"], ["10 minutes of silence, then pizza 🍕", "shrek"],
+      ["Running across a train platform 🚂", "raj"], ["You say 'door had space for both' 🚪", "jack"]]
+  },
+  {
+    q: "Pick our movie theme song vibe", o: [
+      ["Slow, soft, tears guaranteed 😭", "jack"], ["Rom-com banger 🎤", "raj"],
+      ["Funny but secretly sweet 🎸", "shrek"], ["Old-school piano 🎹", "noah"]]
+  },
+  {
+    q: "How would you describe me in the movie?", o: [
+      ["Total hero, slightly clueless 🦸", "raj"], ["The funny sidekick who wins the girl 😎", "shrek"],
+      ["Hopeless romantic 🌹", "noah"], ["Artist with zero money 🎨", "jack"]]
+  }
 ];
 const RESULTS = {
   jack: ["Jack & Rose 🚢", "Dramatic, deep and a little tragic. Please don't let go. There's room on the door."],
@@ -64,7 +74,7 @@ function playCinematicOpenChord() {
       osc.start(startTime);
       osc.stop(startTime + 1.45);
     });
-  } catch (_) {}
+  } catch (_) { }
 }
 
 // ---------- CINEMATIC DUST & BOKEH PARTICLES ----------
@@ -223,7 +233,7 @@ if (openBtn && welcome) {
     // 6. Smooth music fade-in
     if (song) {
       song.volume = 0;
-      song.play().catch(() => {});
+      song.play().catch(() => { });
       let vol = 0;
       const volInterval = setInterval(() => {
         vol = Math.min(1, vol + 0.08);
@@ -305,7 +315,7 @@ function playHugChime() {
       osc.start(hugAudioCtx.currentTime + idx * 0.08);
       osc.stop(hugAudioCtx.currentTime + idx * 0.08 + 0.36);
     });
-  } catch (_) {}
+  } catch (_) { }
 }
 
 function showHugToast() {
